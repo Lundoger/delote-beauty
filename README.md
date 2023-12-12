@@ -8,4 +8,4 @@
 - Responsive adaptive
 - Swiper.js
 # Preview:
-[Delote-beauty](https://nft-maketplace-lundoger.netlify.app/)
+[Delote-beauty](https://delote-beauty-lundoger.netlify.app/)
