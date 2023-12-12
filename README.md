@@ -6,6 +6,5 @@ My project, a website dedicated to cosmetic services, is crafted using modern te
 - Scss & Scss mixins
 - GULP & WEBPACK
 - Responsive adaptive
-- Swiper.js
 # Preview:
 [Delote-beauty](https://delote-beauty-lundoger.netlify.app/)
