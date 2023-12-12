@@ -1,0 +1,106 @@
+//====================================================================================================
+.footer {
+
+	&__container {
+	}
+
+	&__body {
+		@include adaptiveValue("padding-top", 80, 30);
+		@include adaptiveValue("padding-bottom", 80, 30);
+		display: grid;
+		grid-template-columns: repeat(4, auto);
+		column-gap: rem(25);
+		@include adaptiveValue("row-gap", 40, 30, 0, 768, 320);
+		@media (max-width:$mobile){
+			grid-template-columns: auto; 
+		}
+		position: relative;
+		&::before,&::after{
+			content:'';
+			width: 100%;
+			height: rem(1);
+			background-color: rgba(255, 255, 255, 0.5);
+			position: absolute;
+			left: 0;
+		}
+		&::before{
+			top: 0;			
+		}
+		&::after{
+			bottom: 0;			
+		}
+		&>* {
+			flex: 1 1 auto;
+		}
+	}
+
+	&__logo {
+		display: block;
+		width: rem(40);
+		height: rem(40);
+		svg {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+
+	&__spollers {
+	}
+
+	&__social {
+	}
+
+	&__label {
+		font-weight: 700;
+		line-height: 1.2;
+		font-size: rem(24);
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 25, 15);
+		}
+	}
+
+	&__link-social {
+		path {
+			transition: stroke 0.3s ease 0s;
+		}
+		@media (any-hover: hover){
+			&:hover{
+				path {
+					stroke: $goldColor;
+				}
+			}
+		}
+	}
+
+	&__copyright {
+		font-weight: 700;
+		line-height: 1.4;
+		color: #ffffff80;
+		text-align: center;
+		@include adaptiveValue("padding-top", 30, 20);
+		@include adaptiveValue("padding-bottom", 30, 20);
+	}
+}
+.spollers {
+
+	&__item {
+	}
+
+	&__title {
+	}
+
+	&__body {
+	}
+
+	&__list {
+	}
+
+	&__link {
+	}
+
+	&__text {
+	}
+}
+
+//====================================================================================================

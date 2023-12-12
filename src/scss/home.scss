@@ -1,0 +1,277 @@
+//====================================================================================================
+.page {
+	&__main-screen {
+		@include adaptiveValue("margin-bottom", 120, 40);
+	}
+	&__quote {
+		@include adaptiveValue("margin-bottom", 105, 65);
+	}
+	&__services {
+		@include adaptiveValue("margin-bottom", 140, 50);
+	}
+	&__cosmetics {
+		@include adaptiveValue("margin-bottom", 170, 60);
+	}
+	&__our-works {
+		@include adaptiveValue("margin-bottom", 100, 35);
+	}
+}
+//========================================================================================================================================================
+.main-screen {
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("@img/main-screen/main-bg.jpg") center / cover no-repeat;
+	display: flex;
+	&__container {
+		flex: 1 1 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+	}
+
+	&__title {
+		font-weight: 700;
+		line-height: 1.2;
+		@include adaptiveValue("font-size", 72, 40);
+	}
+
+	&__button {
+		font-family: "EB Garamond";
+		font-weight: 700;
+		line-height: 1.4;
+		position: absolute;
+		left: 50%;
+		bottom: 10%;
+		transform: translate(-50%, 0);
+		display: flex;
+		align-items: center;
+		gap: rem(20);
+		white-space: nowrap;
+		span {
+			flex: 0 0 rem(20);
+			width: rem(20);
+			height: rem(30);
+			border: rem(1) solid #FFFFFF;
+			border-radius: rem(8);
+			position: relative;
+			&::before{
+				content:'';
+				width: rem(4);
+				height: rem(4);
+				background-color: #fff;
+				border-radius: 50%;
+				position: absolute;
+				top: 23%;
+				left: 50%;
+				transform: translate(-50%, 0);
+			}
+		}
+	}
+}
+//====================================================================================================
+.quote {
+
+	&__container {
+		max-width: rem(860);
+		margin: 0 auto;
+		text-align: center;
+	}
+	&__item {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 60, 20);
+		}
+		@media (max-width:$mobileSmall){
+			width: rem(50);
+			height: rem(40);
+		}
+	}
+	&__text {
+		p {
+			@include adaptiveValue("font-size", 27, 18);
+			font-weight: 700;
+			line-height: 1.3;
+			&:not(:last-child) {
+				margin-bottom: rem(15);	
+			}
+		}
+	}
+}
+//========================================================================================================================================================
+.services {
+
+	&__container {
+		padding-right: rem(40);
+	}
+
+	&__body {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		@include adaptiveValue("column-gap", 44, 30, 0, 1300, 500);
+		@include adaptiveValue("row-gap", 80, 45);
+		@media (max-width:$mobile){
+			grid-template-columns: repeat(2, 1fr); 
+		}
+		@media (max-width:$mobileSmall){
+			grid-template-columns: auto;
+		}
+	}
+
+	&__item {
+	}
+}
+.item-services {
+	display: block;
+	text-align: center;
+	@media (any-hover: hover){
+		&:hover{
+			.item-services__image-ibg {
+				img {
+					transform: translate(20px,-20px);
+				}
+				&::after{
+					transform: translate(20px,-20px);		
+					opacity: 0;			
+				}
+			}
+			.item-services__link {
+				color: $goldColor;
+			}
+		}
+	}
+	&__image-ibg {
+		padding-bottom: 75%;
+		@include adaptiveValue("margin-bottom", 30, 20);
+		img {
+			transition: transform 0.3s ease 0s;
+		}
+		&::before{
+			content:'';
+			width: 100%;
+			height: 100%;
+			border: rem(1) solid $goldColor;
+			position: absolute;
+			top: rem(-20);
+			left: rem(20);
+		}
+		&::after{
+			content:'';
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+			position: absolute;
+			top: 0;
+			left: 0;
+			transition: all 0.3s ease 0s;
+		}
+	}
+
+	&__link {
+		@include adaptiveValue("font-size", 30, 20);
+		line-height: 1.2;
+		transition: color 0.3s ease 0s;
+	}
+}
+//========================================================================================================================================================
+.cosmetics {
+
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		align-items: center;
+		gap: rem(30);
+		@media (max-width:$mobile){
+			grid-template-columns: repeat(2, 1fr); 
+		}
+	}
+
+	&__image {
+		justify-self: center;
+		width: rem(200);
+		height: rem(120);
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+		@media (max-width:$mobileSmall){
+			width: rem(140);
+			height: rem(90);
+		}
+	}
+}
+//========================================================================================================================================================
+.our-works {
+
+	&__container {
+	}
+
+	&__title {
+		text-align: center;
+		@include adaptiveValue("margin-bottom", 80, 20);
+		@include adaptiveValue("font-size", 48, 30);
+		font-weight: 700;
+		line-height: 1.2;
+	}
+
+	&__btns {
+		@include adaptiveValue("margin-bottom", 55, 25);
+		overflow: auto;
+		white-space: nowrap;
+		padding-bottom: rem(15);
+		display: flex;
+		align-items: center;
+		@include adaptiveValue("column-gap", 60, 30);
+		@media (min-width:$mobile){
+			justify-content: center;
+		}
+	}
+
+	&__button {
+		font-size: rem(24);
+		line-height: 1.3;
+		position: relative;
+		transition: color 0.3s ease 0s;
+		&::before{
+			content:'';
+			width: 0;
+			height: rem(2);
+			background-color: $goldColor;
+			position: absolute;
+			bottom: rem(-5);
+			left: 0;
+			transition: width 0.3s ease 0s;
+		}
+		&.active {
+			color: $goldColor;
+			&::before{
+				width: 100%;				
+			}
+		}
+		@media (any-hover: hover){
+			&:hover{
+				color: $goldColor;
+			}
+		}
+	}
+
+	&__gallery {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+		gap: rem(24);
+		@media (max-width:$mobile){
+			grid-template-columns: repeat(2, 1fr);
+			&>*:last-child{
+				grid-column: span 2;
+			}
+		}
+	}
+
+	&__item {
+	}
+
+	&__image-ibg {
+		padding-bottom: 100%;
+	}
+}
+//========================================================================================================================================================

@@ -1,0 +1,132 @@
+.burger {
+	width: 30%;
+	min-height: 100%;
+	background-color: #111;
+	position: fixed;
+	top: 0;
+	right: -100%;
+	transition: all 0.3s ease 0s;
+	z-index: 50;
+	.menu-open & {
+		right: 0;
+	}
+	@media (max-width:$tablet){
+		width: 40%;
+	}
+	@media (max-width:$mobile){
+		width: 60%;
+	}
+	@media (max-width:$mobileSmall){
+		width: 77%;
+	}
+	&__icon {
+		position: absolute;
+		top: rem(15);
+		@include adaptiveValue("left", 80, 20, 0, 1300, 768);
+		z-index: 52;
+		width: rem(40);
+		height: rem(40);
+		background-color: $goldColor;
+		border: rem(2) solid transparent;
+		transform: scale(0);
+		transition: transform 0.3s ease 0.3s, background-color 0.3s ease 0s;
+		.menu-open & {
+			transform: scale(1);
+		}
+		@media (any-hover: hover){
+			&:hover{
+				background-color: #111;
+				border: rem(2) solid $goldColor;
+			}
+		}
+	}
+	&__body {
+		position: fixed;
+		top: 0;
+		right: -100%;
+		width: 30%;
+		height: 100%;
+		z-index: 50;
+		overflow: auto;
+		transition: all 0.3s ease 0s;
+		@include adaptiveValue("padding-left", 80, 20, 0, 1300, 768);
+		@include adaptiveValue("padding-right", 80, 20, 0, 1300, 768);
+		padding-bottom: rem(30);
+		@include adaptiveValue("padding-top", 260, 70);
+		scrollbar-width: 0;
+		&::-webkit-scrollbar {
+			width: 0;
+		}
+		&>*:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 60, 20);
+		}
+		.menu-open & {
+			right: 0;
+		}
+		@media (max-width:$tablet){
+			width: 40%;
+		}
+		@media (max-width:$mobile){
+			width: 60%;
+		}
+		@media (max-width:$mobileSmall){
+			width: 77%;
+		}
+	}
+	&__description {
+		line-height: 1.3;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 80, 30);
+		}
+	}
+	&__spollers {
+
+	}
+}
+
+
+
+
+
+// &__icon {
+// }
+
+// &__body {
+// 	position: fixed;
+// 	width: 30%;
+// 	min-height: 100%;
+// 	top: 0;
+// 	right: -100%;
+// 	background-color: #111111;
+// 	transition: all 0.3s ease 0s;
+// 	z-index: 50;
+// 	@include adaptiveValue("padding-left", 80, 20, 0, 1300, 768);
+// 	@include adaptiveValue("padding-right", 80, 20, 0, 1300, 768);
+// 	display: flex;
+// 	flex-direction: column;
+// 	justify-content: center;
+// 	overflow: auto;
+// 	& > *:not(:last-child) {
+// 		@include adaptiveValue("margin-bottom", 60, 20);
+// 	}
+// 	.menu-open & {
+// 		right: 0;
+// 	}
+// 	@media (max-width: $tablet) {
+// 		width: 40%;
+// 	}
+// 	@media (max-width: $mobile) {
+// 		width: 55%;
+// 	}
+// 	@media (max-width: $mobileSmall) {
+// 		width: 78%;
+// 	}
+// }
+// &__description {
+// 	&:not(:last-child) {
+// 		@include adaptiveValue("margin-bottom", 80, 30);
+// 	}
+// }
+
+// &__spollers {
+// }

@@ -1,0 +1,36 @@
+.contacts {
+
+	&__map {
+		@include adaptiveValue("margin-top", 180, 120);
+		@include adaptiveValue("margin-bottom", 100, 40);
+	}
+}
+//========================================================================================================================================================
+.map {
+
+	&__container {
+	}
+
+	&__info {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		&>* {
+			flex: 1 1 auto;
+		}
+		gap: rem(35);
+	}
+}
+//========================================================================================================================================================
+#map {
+	width: 100%;
+	@include adaptiveValue("height", 600, 250);
+	@include adaptiveValue("margin-bottom", 80, 30);
+}
+@media (max-width:$mobile){
+	div#map a,
+	div#map button,
+	div.gm-bundled-control div.gmnoprint {
+		display: none !important;
+	} 
+}

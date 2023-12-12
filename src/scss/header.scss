@@ -1,0 +1,269 @@
+//====================================================================================================
+.header {
+	position: fixed;
+	width: 100%;
+	z-index: 20;
+	transition: background-color  0.3s ease 0s;
+	&._header-scroll {
+		background-color: #111;
+	}
+	&__container {
+		@media (min-width: $mobile) {
+			display: grid;
+			grid-template-columns: rem(40) 1fr rem(40) 1fr rem(40);
+		}
+		align-items: center;
+		gap: rem(30);
+		position: relative;
+		@include adaptiveValue("padding-top", 30, 15);
+		@include adaptiveValue("padding-bottom", 30, 15);
+		display: flex;
+		justify-content: space-between;
+		transition: all 0.3s ease 0s;
+		._header-scroll & {
+			padding-top: rem(15);
+			padding-bottom: rem(15);
+		}
+		&::before {
+			content: "";
+			width: 100%;
+			height: rem(1);
+			background-color: rgba(255, 255, 255, 0.5);
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			transition: transform 0.3s ease 0s;
+			._header-scroll & {
+				transform: scaleX(0);
+			}
+		}
+	}
+
+	&__social {
+	}
+
+	&__item-social {
+		path {
+			transition: stroke 0.3s ease 0s;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				path {
+					stroke: $goldColor;
+				}
+			}
+		}
+	}
+
+	&__menu {
+	}
+
+	&__logo {
+		width: rem(40);
+		height: rem(40);
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+
+	&__icon {
+		position: relative;
+		width: rem(40);
+		height: rem(25);
+		transition: opacity 0.3s ease 0s;
+		@media (max-width:$mobile){
+			width: rem(25);
+			height: rem(18); 
+		}
+		.menu-open & {
+			opacity: 0;
+		}
+	}
+}
+.menu {
+	justify-self: center;
+	&__item {
+	}
+
+	&__title {
+		display: none;
+		@media (max-width: $mobile) {
+			display: block;
+			width: 100%;
+			cursor: default;
+			text-align: left;
+			position: relative;
+			font-family: "EB Garamond";
+			font-weight: 700;
+			font-size: rem(24);
+			line-height: 1.2;
+			._spoller-init & {
+				cursor: pointer;
+				&::before,
+				&::after {
+					content: "";
+					position: absolute;
+					right: 10px;
+					top: 50%;
+					background-color: #fff;
+					height: 2px;
+					width: 15px;
+					transition: transform 0.5s ease 0s;
+				}
+				&::before {
+					transform: translate(-75%, -50%) rotate(40deg);
+				}
+				&::after {
+					transform: translate(0, -50%) rotate(-40deg);
+				}
+				&._spoller-active {
+					&::before {
+						transform: translateX(-75%) rotate(-40deg);
+					}
+					&::after {
+						transform: rotate(40deg);
+					}
+				}
+			}
+		}
+	}
+
+	&__body {
+		@media (max-width:$mobile){
+			@include adaptiveValue("padding-top", 25, 15); 
+		}
+	}
+
+	&__list {
+		@media (min-width:$mobile){
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			@include adaptiveValue("column-gap", 80, 25, 0, 1300, 768);
+			row-gap: rem(7); 
+		}
+		@media (max-width:$mobile){
+			&>*:not(:last-child) {
+				margin-bottom: rem(15);
+			} 
+		}
+	}
+
+	&__li {
+	}
+
+	&__link {
+		font-weight: 600;
+		line-height: 1.3;
+		transition: all 0.3s ease 0s;
+		position: relative;
+		&::before {
+			content: "";
+			width: 100%;
+			height: rem(2);
+			background-color: $goldColor;
+			position: absolute;
+			bottom: rem(-5);
+			left: 0;
+			transform: scaleX(0);
+			transition: all 0.3s ease 0s;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: $goldColor;
+				&::before {
+					transform: scaleX(1);
+				}
+			}
+		}
+	}
+}
+.spollers {
+	&__item {
+	}
+
+	&__title {
+	}
+
+	&__body {
+	}
+
+	&__list {
+	}
+
+	&__link {
+		transition: color 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+				color: $goldColor;
+			}
+		}
+	}
+	&__text {
+		line-height: 1.3;
+		&:not(:last-child) {
+			margin-bottom: rem(15);
+		}
+	}
+}
+
+//====================================================================================================
+
+//Burger
+.icon-menu {
+	display: block;
+	z-index: 10;
+	@media (any-hover: none) {
+		cursor: default;
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			span,
+			&::before,
+			&::after {
+				background-color: $goldColor;
+			}
+		}
+	}
+	span,
+	&::before,
+	&::after {
+		content: "";
+		transition: all 0.3s ease 0s;
+		right: 0;
+		position: absolute;
+		width: 100%;
+		height: rem(2);
+		background-color: #fff;
+		transition: all 0.3s ease 0s;
+	}
+	&::before {
+		top: 0;
+	}
+	&::after {
+		bottom: 0;
+	}
+	span {
+		top: calc(50% - rem(1));
+		transform: translate(-25%, 0);
+	}
+	.menu-open & {
+		span {
+			width: 0;
+		}
+		&::before,
+		&::after {
+		}
+		&::before {
+			top: calc(50% - rem(1));
+			transform: rotate(-45deg);
+		}
+		&::after {
+			bottom: calc(50% - rem(1));
+			transform: rotate(45deg);
+		}
+	}
+}
